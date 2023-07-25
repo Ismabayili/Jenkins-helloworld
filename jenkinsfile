@@ -4,9 +4,9 @@ node {
        git 'https://github.com/Ismabayili/jenkins-helloworld.git'   
      }
      stage('build') {
-         sh '''javac Main.java'''    
+         sh 'javac Main.java'    
      }
      stage('run') {
-         sh '''java Main'''        
+         sh 'java Main'        
      }
  }
