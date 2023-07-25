@@ -1,4 +1,4 @@
-# Copier-coller de notre mini Pipeline
+#Copier-coller de notre mini Pipeline
 node {
     stage('Clone') {
        git 'https://github.com/Ismabayili/jenkins-helloworld.git'   
