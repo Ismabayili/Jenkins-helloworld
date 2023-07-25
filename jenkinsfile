@@ -1,12 +1,18 @@
-# Copier-coller de notre mini Pipeline
-node {
-    stage('clone') {
-       git 'https://github.com/Ismabayili/jenkins-helloworld.git'   
+node{
+  def app
+    stage('Clone') {
+        checkout scm
+    }
+
+    stage('Build image') {
+        app = docker.build("ismael/nginx")
+    }
+
+   stage('Run image') {
+       docker.image('ismael/nginx').withRun('-p 80:80') { c ->
+       sh 'docker ps'
+       sh 'curl localhost'
      }
-     stage('build') {
-         sh 'javac Main.java'    
-     }
-     stage('run') {
-         sh 'java Main'        
-     }
+  
+    }
  }
