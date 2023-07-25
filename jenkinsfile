@@ -1,12 +1,12 @@
 # Copier-coller de notre mini Pipeline
 node {
-    stage('clone') {
+    stage('Clone') {
        git 'https://github.com/Ismabayili/jenkins-helloworld.git'   
      }
-     stage('build') {
-         sh 'javac Main.java'    
+     stage('Build') {
+         sh label: '', script: 'javac Main.java'    
      }
-     stage('run') {
-         sh 'java Main'        
+     stage('Run') {
+         sh label: '', script: 'java Main'        
      }
  }
